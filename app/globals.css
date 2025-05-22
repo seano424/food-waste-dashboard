@@ -50,7 +50,7 @@
 
   /* Metric Card */
   .metric-card {
-    @apply bg-white rounded-xl shadow-card p-6 border border-gray-100 hover:shadow-card-hover hover:scale-105 transition-all duration-250 cursor-pointer;
+    @apply bg-white rounded-xl shadow-card p-6 border border-gray-100 hover:shadow-card-hover hover:bg-gray-50 transition-all duration-250 cursor-pointer;
   }
 
   /* Status Badge Components */

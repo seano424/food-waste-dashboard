@@ -1,4 +1,4 @@
-import { Product, ExpiryData, HealthData, WasteData } from '../types/dashboard'
+import { Product, ExpiryData, HealthData, WasteData } from '@/types/dashboard'
 
 // Simple seeded random number generator
 const seededRandom = (seed: number) => {
@@ -129,4 +129,4 @@ export const generateChartData = (inventory: Product[]) => {
   ]
 
   return { expiryData, healthData, wasteData }
-} 
+}

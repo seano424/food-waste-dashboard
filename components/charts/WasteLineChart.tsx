@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import {
   LineChart,
@@ -9,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
-import { WasteData } from '../../types/dashboard'
+import { WasteData } from '@/types/dashboard'
 
 interface CustomLineTooltipProps {
   active?: boolean
@@ -17,15 +19,17 @@ interface CustomLineTooltipProps {
   label?: string
 }
 
-const CustomLineTooltip = ({ active, payload, label }: CustomLineTooltipProps) => {
+const CustomLineTooltip = ({
+  active,
+  payload,
+  label,
+}: CustomLineTooltipProps) => {
   if (active && payload && payload.length) {
     const date = new Date(label!)
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}`
     return (
       <div className="tooltip">
-        <p className="font-semibold text-gray-800">
-          {formattedDate}
-        </p>
+        <p className="font-semibold text-gray-800">{formattedDate}</p>
         <p className="text-green-600">
           Items Saved: <span className="font-bold">{payload[0].value}</span>
         </p>
@@ -50,12 +54,18 @@ export const WasteLineChart: React.FC<WasteLineChartProps> = ({ data }) => {
         Daily Waste Prevention Progress
       </h3>
       <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+        >
           <LineChart
             data={data}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
           >
-            <CartesianGrid strokeDasharray="3 3" className="chart-grid" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              className="chart-grid"
+            />
             <XAxis
               dataKey="date"
               stroke="#6b7280"
@@ -96,4 +106,4 @@ export const WasteLineChart: React.FC<WasteLineChartProps> = ({ data }) => {
       </div>
     </div>
   )
-} 
+}
