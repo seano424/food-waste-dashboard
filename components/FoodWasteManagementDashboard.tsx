@@ -1,26 +1,20 @@
 'use client'
 
 import React, { useMemo } from 'react'
-import { MetricsSection } from './MetricsSection'
-import { ExpiryBarChart } from './charts/ExpiryBarChart'
-import { HealthPieChart } from './charts/HealthPieChart'
-import { WasteLineChart } from './charts/WasteLineChart'
-import {
-  generateInventoryData,
-  generateChartData,
-} from '../utils/dashboardData'
-
-// Simple seeded random number generator
-const seededRandom = (seed: number) => {
-  const x = Math.sin(seed) * 10000
-  return x - Math.floor(x)
-}
+import { MetricsSection } from '@/components/MetricsSection'
+import { ExpiryBarChart } from '@/components/charts/ExpiryBarChart'
+import { HealthPieChart } from '@/components/charts/HealthPieChart'
+import { WasteLineChart } from '@/components/charts/WasteLineChart'
+import { generateInventoryData, generateChartData } from '@/utils/dashboardData'
 
 const FoodWasteDashboard = () => {
   // Use a fixed seed for consistent data between server and client
   const seed = 12345
   const inventory = useMemo(() => generateInventoryData(seed), [])
-  const { expiryData, healthData, wasteData } = useMemo(() => generateChartData(inventory), [inventory])
+  const { expiryData, healthData, wasteData } = useMemo(
+    () => generateChartData(inventory),
+    [inventory]
+  )
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
