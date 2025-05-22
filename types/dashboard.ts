@@ -25,4 +25,14 @@ export interface HealthData {
   name: string
   value: number
   color: string
+}
+
+export interface ChartTooltipPayload {
+  value: number
+  name: string
+  payload: {
+    color?: string
+    name?: string
+    value?: number
+  }
 } 

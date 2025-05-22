@@ -16,8 +16,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   title,
   products,
 }) => {
-  if (!isOpen) return null
-
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -30,6 +28,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
       return () => document.removeEventListener('keydown', handleEscape)
     }
   }, [isOpen, onClose])
+
+  if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">

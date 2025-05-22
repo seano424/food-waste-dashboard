@@ -9,7 +9,7 @@ interface MetricsSectionProps {
   inventory: Product[]
 }
 
-export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
+const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
   ({ inventory }) => {
     const [selectedMetric, setSelectedMetric] = useState<{
       title: string
@@ -155,3 +155,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
     )
   }
 )
+
+MetricsSection.displayName = 'MetricsSection'
+
+export { MetricsSection }

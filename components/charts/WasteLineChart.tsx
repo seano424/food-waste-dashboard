@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import {
   LineChart,
   Line,
@@ -11,11 +12,11 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-import { WasteData } from '@/types/dashboard'
+import { WasteData, ChartTooltipPayload } from '@/types/dashboard'
 
 interface CustomLineTooltipProps {
   active?: boolean
-  payload?: any[]
+  payload?: ChartTooltipPayload[]
   label?: string
 }
 

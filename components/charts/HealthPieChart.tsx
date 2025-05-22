@@ -1,11 +1,12 @@
 'use client'
 
-import { HealthData } from '@/types/dashboard'
+import React from 'react'
+import { HealthData, ChartTooltipPayload } from '@/types/dashboard'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface CustomPieTooltipProps {
   active?: boolean
-  payload?: any[]
+  payload?: ChartTooltipPayload[]
 }
 
 const CustomPieTooltip = ({ active, payload }: CustomPieTooltipProps) => {

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   BarChart,
   Bar,
@@ -7,12 +8,11 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-
-import { ExpiryData } from '@/types/dashboard'
+import { ExpiryData, ChartTooltipPayload } from '@/types/dashboard'
 
 interface CustomBarTooltipProps {
   active?: boolean
-  payload?: any[]
+  payload?: ChartTooltipPayload[]
   label?: string
 }
 
