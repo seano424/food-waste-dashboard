@@ -1,12 +1,7 @@
-import React from 'react'
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts'
-import { HealthData } from '../../types/dashboard'
+'use client'
+
+import { HealthData } from '@/types/dashboard'
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface CustomPieTooltipProps {
   active?: boolean
@@ -39,7 +34,10 @@ export const HealthPieChart: React.FC<HealthPieChartProps> = ({ data }) => {
         Inventory Health Status
       </h3>
       <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+        >
           <PieChart>
             <Pie
               data={data}
@@ -66,4 +64,4 @@ export const HealthPieChart: React.FC<HealthPieChartProps> = ({ data }) => {
       </div>
     </div>
   )
-} 
+}

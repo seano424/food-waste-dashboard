@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import {
   LineChart,
   Line,
@@ -11,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
+
 import { WasteData } from '@/types/dashboard'
 
 interface CustomLineTooltipProps {

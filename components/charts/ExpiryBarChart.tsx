@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   BarChart,
   Bar,
@@ -8,7 +7,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { ExpiryData } from '../../types/dashboard'
+
+import { ExpiryData } from '@/types/dashboard'
 
 interface CustomBarTooltipProps {
   active?: boolean
@@ -16,7 +16,11 @@ interface CustomBarTooltipProps {
   label?: string
 }
 
-const CustomBarTooltip = ({ active, payload, label }: CustomBarTooltipProps) => {
+const CustomBarTooltip = ({
+  active,
+  payload,
+  label,
+}: CustomBarTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div className="tooltip">
@@ -47,12 +51,18 @@ export const ExpiryBarChart: React.FC<ExpiryBarChartProps> = ({ data }) => {
         Products Expiring by Day
       </h3>
       <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+        >
           <BarChart
             data={data}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
           >
-            <CartesianGrid strokeDasharray="3 3" className="chart-grid" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              className="chart-grid"
+            />
             <XAxis
               dataKey="day"
               stroke="#6b7280"
@@ -82,4 +92,4 @@ export const ExpiryBarChart: React.FC<ExpiryBarChartProps> = ({ data }) => {
       </div>
     </div>
   )
-} 
+}

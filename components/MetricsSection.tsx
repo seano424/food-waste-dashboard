@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useMemo, useState } from 'react'
+
 import { Product } from '@/types/dashboard'
-import { ProductDetailModal } from './ProductDetailModal'
+import { ProductDetailModal } from '@/components/ProductDetailModal'
 
 interface MetricsSectionProps {
   inventory: Product[]
@@ -33,7 +34,9 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
       [inventory]
     )
 
-    const handleMetricClick = (type: 'total' | 'critical' | 'warning' | 'all') => {
+    const handleMetricClick = (
+      type: 'total' | 'critical' | 'warning' | 'all'
+    ) => {
       let filteredProducts: Product[]
       let title: string
 
@@ -43,11 +46,15 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
           title = 'All Products'
           break
         case 'critical':
-          filteredProducts = inventory.filter((p) => p.healthStatus === 'critical')
+          filteredProducts = inventory.filter(
+            (p) => p.healthStatus === 'critical'
+          )
           title = 'Critical Items'
           break
         case 'warning':
-          filteredProducts = inventory.filter((p) => p.healthStatus === 'warning')
+          filteredProducts = inventory.filter(
+            (p) => p.healthStatus === 'warning'
+          )
           title = 'Warning Items'
           break
         default:
@@ -61,7 +68,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
     return (
       <>
         <div className="mb-8 flex flex-col gap-2">
-          <div 
+          <div
             className="metric-card"
             onClick={() => handleMetricClick('total')}
           >
@@ -80,7 +87,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
             </div>
           </div>
 
-          <div 
+          <div
             className="metric-card"
             onClick={() => handleMetricClick('all')}
           >
@@ -99,7 +106,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
             </div>
           </div>
 
-          <div 
+          <div
             className="metric-card"
             onClick={() => handleMetricClick('critical')}
           >
@@ -108,7 +115,9 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
                 <p className="text-sm font-medium text-gray-600">
                   Critical Items
                 </p>
-                <p className="text-2xl font-bold text-red-600">{criticalItems}</p>
+                <p className="text-2xl font-bold text-red-600">
+                  {criticalItems}
+                </p>
               </div>
               <div className="icon-danger">
                 <span>⚠️</span>
@@ -116,13 +125,15 @@ export const MetricsSection: React.FC<MetricsSectionProps> = React.memo(
             </div>
           </div>
 
-          <div 
+          <div
             className="metric-card"
             onClick={() => handleMetricClick('warning')}
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Warning Items</p>
+                <p className="text-sm font-medium text-gray-600">
+                  Warning Items
+                </p>
                 <p className="text-2xl font-bold text-yellow-600">
                   {warningItems}
                 </p>

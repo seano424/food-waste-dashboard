@@ -34,7 +34,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-y-auto">
-        {/* fix the header to be sticky */}
         <div className="sticky top-0 bg-white/80 backdrop-blur-sm p-6 rounded-t-xl flex justify-between items-center border-b border-gray-100">
           <h2 className="text-2xl font-black uppercase text-gray-900">
             {title}
